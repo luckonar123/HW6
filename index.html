@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Homework 6</title>
+    </head>
+    <body>
+        
+        <script language="javascript">
+             function amicableCheck()
+            {
+                 x = parseInt(document.getElementById("number1").value);
+                 y = parseInt(document.getElementById("number2").value);
+                
+                var array1 = [];
+                var array2 = [];
+                
+                for (i = 0; i < x; i++)
+                {
+                    z = x % i;
+                    if (z == 0)
+                    {
+                        array1.push(i);
+                    }
+                }
+                
+                for (i = 0; i < y; i++)
+                {
+                    z = y % i;
+                    if (z == 0)
+                    {
+                        array2.push(i);
+                    }
+                }
+                
+                total1=0;
+                for(i = 0; i < array1.length; i++) 
+                { 
+                    total1 += array1[i];
+                }
+                total2=0;
+                for(i = 0; i < array2.length; i++) 
+                { 
+                    total2 += array2[i];
+                }
+                
+                alert("Factors of " + x + ": " + array1.join(" ") + "\n" + 
+                "Factors of " + y + ": " + array2.join(" "));            
+                
+                if((total1 == y)&&(total2 == x))
+                {
+                document.getElementById("result").innerHTML = "The numbers " +
+                x + " and " + y + " are amicable!";
+                }
+                if((total1 != y)||(total2 != x))
+                {
+                document.getElementById("result").innerHTML = "The numbers " +
+                x + " and " + y + " are not amicable!";
+                }
+                
+            }
+        </script>
+        
+        <form>
+            Enter a number:   <input type="text" id="number1">
+            Enter a number:   <input type="text" id="number2">
+            <br>
+            <input type="button" value="Press me" onclick="amicableCheck()"
+        <form/>
+        
+        <div id="result">            
+            
+        </div>
+        
+    </body>
+</html>
